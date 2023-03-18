@@ -1,0 +1,8 @@
+#dragon-news{
+    text-decoration: none;
+    color: black;
+}
+#dragon-news:hover{
+    color: blueviolet;
+    cursor: pointer;
+}

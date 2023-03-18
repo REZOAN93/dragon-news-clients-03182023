@@ -1,0 +1,17 @@
+#link-category{
+    text-decoration: none;
+    color: black;
+}
+#pcategory{
+    margin-bottom: 2px;
+    border-bottom: 1px solid grey;
+}
+.category-list{
+    background-color: beige;
+    padding: 8px;
+    border-radius: 10px;
+}
+#link-category:hover{
+    color: blueviolet;
+    font-weight: 600;
+}
