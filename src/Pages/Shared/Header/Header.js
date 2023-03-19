@@ -8,9 +8,11 @@ import { Link } from "react-router-dom";
 import { Authcontext } from "../../../Context/AuthProvider/AuthProvider";
 import Leftsidenav from "../Leftsidenav/Leftsidenav";
 import "./Header.css";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Header = () => {
-  const { user,LogOut } = useContext(Authcontext);
+  const { user, LogOut } = useContext(Authcontext);
+  console.log(user);
 
   const handleSignOut = () => {
     LogOut();
@@ -39,21 +41,34 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">{user.displayName}</Nav.Link>
-            <Image
-              roundedCircle
-              style={{ width: "45px" }}
-              src={user.photoURL}
-            ></Image>
             <>
               {user.email ? (
                 <>
-                  <Link onClick={handleSignOut}>Sign Out</Link>
+                  <Nav.Link href="#deets">
+                    {user?.displayName} {user?.email}
+                  </Nav.Link>
+                  {user?.photoURL ? (
+                    <Image
+                      roundedCircle
+                      className="me-4"
+                      style={{ width: "45px" }}
+                      src={user?.photoURL}
+                    ></Image>
+                  ) : (
+                    <BsFillPersonFill id="useremoji" />
+                  )}
+                  <Link id="signout" onClick={handleSignOut}>
+                    Sign Out
+                  </Link>
                 </>
               ) : (
                 <>
-                  <Link>Register</Link>
-                  <Link>Login</Link>
+                  <Link to={"/register"} className="me-4" id="signout">
+                    Register
+                  </Link>
+                  <Link to={"/login"} id="signout">
+                    Login
+                  </Link>
                 </>
               )}
             </>

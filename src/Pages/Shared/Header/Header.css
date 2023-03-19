@@ -6,3 +6,18 @@
     color: blueviolet;
     cursor: pointer;
 }
+#signout{
+    text-decoration: none;
+    color: black;
+    border: 1px solid blueviolet;
+    padding: 07px;
+    height: 40px;
+    border-radius: 10px;
+}
+#signout:hover{
+    background-color: blueviolet;
+    color: white;
+}
+#useremoji{
+    margin: 10px;
+}
