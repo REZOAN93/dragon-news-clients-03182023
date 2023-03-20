@@ -48,12 +48,14 @@ const Header = () => {
                     {user?.displayName} {user?.email}
                   </Nav.Link>
                   {user?.photoURL ? (
-                    <Image
-                      roundedCircle
-                      className="me-4"
-                      style={{ width: "45px" }}
-                      src={user?.photoURL}
-                    ></Image>
+                    <Link to={"/profile"}>
+                      <Image
+                        roundedCircle
+                        className="me-4"
+                        style={{ width: "45px" }}
+                        src={user?.photoURL}
+                      ></Image>
+                    </Link>
                   ) : (
                     <BsFillPersonFill id="useremoji" />
                   )}

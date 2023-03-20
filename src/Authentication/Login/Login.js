@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Context/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { userlogin } = useContext(Authcontext);
+  const { userlogin} = useContext(Authcontext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,7 +28,7 @@ const Login = () => {
         const user = userCredential.user;
         // ...
         form.reset();
-        if (user.emailverified) {
+        if (user.emailVerified) {
           navigate(from, { replace: true });
         } else {
           toast.error("Email is not verified. Please verify");
@@ -39,7 +39,8 @@ const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage);
-      });
+      })
+    
   };
   return (
     <Form onSubmit={handlesignin} className="w-75 mt-5 m-auto">

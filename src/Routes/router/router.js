@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../../Authentication/Login/Login";
 import PrivateRoutes from "../../Authentication/PrivateRoute/PrivateRoutes";
+import Profile from "../../Authentication/Profile/Profile";
 import Register from "../../Authentication/Register/Register";
 import Main from "../../Layout/Main/Main";
 import AllNews from "../../Pages/AllNews/AllNews";
@@ -45,6 +46,14 @@ export const router = createBrowserRouter([
       {
         path: "/term&Condition",
         element: <Conditions />,
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
+            <Profile />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

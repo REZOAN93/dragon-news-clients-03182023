@@ -34,15 +34,16 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, profile);
   };
 
-  const verifyEmail=()=>{
-    return sendEmailVerification(auth.currentUser)
-  }
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-        // ...
-        setUser(user);
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        if (currentUser === null || currentUser.emailVerified) {
+          setUser(currentUser);
+        }
       } else {
         // User is signed out
         // ...
@@ -67,7 +68,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     userlogin,
     updateuser,
-    verifyEmail
+    verifyEmail,
   };
 
   return (
