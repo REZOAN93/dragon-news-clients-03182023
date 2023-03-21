@@ -5,7 +5,7 @@ import "./Leftsidenav.css";
 const Leftsidenav = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch("https://dragon-news-server-03182023.vercel.app/category")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
