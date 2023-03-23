@@ -9,10 +9,12 @@ import { Authcontext } from "../../../Context/AuthProvider/AuthProvider";
 import Leftsidenav from "../Leftsidenav/Leftsidenav";
 import "./Header.css";
 import { BsFillPersonFill } from "react-icons/bs";
+import useTitle from "../../../Hooks/useTitle";
 
 const Header = () => {
   const { user, LogOut } = useContext(Authcontext);
   console.log(user);
+  useTitle('Home');
 
   const handleSignOut = () => {
     LogOut();

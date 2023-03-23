@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const Login = () => {
   const { userlogin} = useContext(Authcontext);
@@ -12,6 +13,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const [accepted, setAccepted] = useState(false);
+  useTitle("Login")
 
   const handleconfirm = (event) => {
     setAccepted(event.target.checked);
